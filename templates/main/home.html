@@ -1,0 +1,15 @@
+{% extends 'main/navbar.html'%}
+
+{%block content%}
+<div class="container">
+	<div class="row pt-3">	
+		{%for post in posts%}		
+		<div class="col-4 pl-3">
+				{% include 'main/post_card.html' with post=post only%}
+		</div>	
+		
+		{%endfor%}
+	</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,54 @@
+
+<head>
+	
+</head>
+<body>
+	
+
+	{%extends 'main/navbar.html'%}
+
+
+
+	{% block content %}
+	<div class="container">
+		<h1>SIGN UP</h1>
+		{% if error%}
+		<p>{{error}}</p>
+		<br>
+		<br>
+		{%endif%}
+		<form method="POST" action="{% url 'signup'%}">
+			{%csrf_token%}
+			{{form.non_field_errors}}
+			<div class="fieldWrapper">
+				{{form.username.errors}}
+				<label for="{{form.username.id_for_label}}">Username:</label>
+				<br>
+				{{form.username}}
+			</div>
+
+			<div class="fieldWrapper">
+				{{form.email.errors}}
+				<label for="{{form.email.id_for_label}}">Email:</label>
+				<br>
+				{{form.email}}
+			</div>
+			<div class="fieldWrapper">
+				{{form.password1.errors}}
+				<label for="{{form.password1.id_for_label}}">Password:</label>
+				<br>
+				{{form.password1}}
+			</div>
+
+			<div class="fieldWrapper">
+				{{form.password2.errors}}
+				<label for="{{form.password2.id_for_label}}">Confirmed Password:</label>
+				<br>
+				{{form.password2}}
+			</div>
+			<input type="submit" class="btn btn-primary" value="Submit!">
+		</form>
+	</div>
+	{%endblock%}
+
+</body>

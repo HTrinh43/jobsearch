@@ -1,0 +1,10 @@
+
+
+<div class="card text-center" onclick="window.open('{% url 'detail' post.id %}');" style="width: 20rem; cursor: pointer;">
+  <div class="card-body">
+    <h5 class="card-title">{{post.workplace}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{post.job}}</h6>
+    <p class="card-text">{{post.address}}</p>
+  </div>
+</div>
+

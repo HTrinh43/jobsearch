@@ -1,0 +1,25 @@
+{% extends 'main/navbar.html'%}
+
+{%block content%}
+<div class="container">
+	<h2>{{post.job}}</h2>
+	<p>{{post.worktime}}</p>
+	<p>{{post.salary_display}}</p>
+	<p>{{post.address}}</p>
+	<p>{{post.description}}</p>
+	<p>{{post.author.username}}</p>
+	<p>{{post.pub_date}}</p>
+</div>
+{% if user.is_authenticated and user.username == post.author.username %}
+<form action="{%url 'edit_post' post.id%}" method="post">
+	{% csrf_token %}
+	<input type="submit" class="btn btn-info" value="Edit">
+</form>
+<form action="{%url 'delete_post' post.id%}" method="post">
+	{% csrf_token %}
+	<input type="submit" class="btn btn-warning" value="Delete">
+</form>
+{%endif%}
+
+
+{%endblock%}

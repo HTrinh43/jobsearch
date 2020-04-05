@@ -1,0 +1,18 @@
+{% extends 'main/navbar.html'%}
+
+{%block content%}
+<div class="container">
+	<h1>Your Post:</h1>
+	<div class="row pt-3">	
+		{%for post in posts%}
+			{% if user.is_authenticated and user.username == post.author.username %}	
+			<div class="col-4 pl-3">
+				{% include 'main/post_card.html' with post=post only%}
+			</div>	
+			{%endif%}
+
+		{%endfor%}
+	</div>
+</div>
+
+{%endblock%}

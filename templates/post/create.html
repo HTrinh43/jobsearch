@@ -1,0 +1,57 @@
+{%extends 'main/navbar.html'%}
+
+{%block content%}
+
+<div class="container">
+	<h2>New Post:</h2>
+	<form action="" method = 'POST'>
+		{%csrf_token%}
+		{{form.non_field_errors}}
+		<div class="fieldWrapper">
+			{{form.job.errors}}
+			<label for="{{form.job.id_for_label}}">Job:</label>
+			<br>
+			{{form.job}}
+		</div>
+		<div class="fieldWrapper">
+			{{form.workplace.errors}}
+			<label for="{{form.workplace.id_for_label}}">Workplace Name:</label>
+			<br>
+			{{form.workplace}}
+		</div>
+		<div class="fieldWrapper">
+			{{form.worktime.errors}}
+			<label for="{{form.worktime.id_for_label}}">Worktime:</label>
+			<br>
+			{{form.worktime}}
+		</div>
+		<div class="fieldWrapper">
+			{{form.address.errors}}
+			<label for="{{form.address.id_for_label}}">Address:</label>
+			<br>
+			{{form.address}}
+		</div>
+		<div class="fieldWrapper">
+			{{form.salary.errors}}
+			<label for="{{form.salary.id_for_label}}">Salary:</label>
+			<br>
+			{{form.salary}}
+		</div>
+		<div class="fieldWrapper">
+			{{form.description.errors}}
+			<label for="{{form.description.id_for_label}}">Description:</label>
+			<br>
+			{{form.description}}
+		</div>
+		<br>
+
+		<input type="submit", class="btn btn-primary">
+	</form>
+
+
+
+
+</div>
+
+
+{%endblock%}
