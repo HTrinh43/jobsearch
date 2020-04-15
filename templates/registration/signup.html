@@ -17,35 +17,12 @@
 		<br>
 		<br>
 		{%endif%}
+		{% load bootstrap4 %}
 		<form method="POST" action="{% url 'signup'%}">
-			{%csrf_token%}
-			{{form.non_field_errors}}
-			<div class="fieldWrapper">
-				{{form.username.errors}}
-				<label for="{{form.username.id_for_label}}">Username:</label>
-				<br>
-				{{form.username}}
-			</div>
+			{% csrf_token %}
 
-			<div class="fieldWrapper">
-				{{form.email.errors}}
-				<label for="{{form.email.id_for_label}}">Email:</label>
-				<br>
-				{{form.email}}
-			</div>
-			<div class="fieldWrapper">
-				{{form.password1.errors}}
-				<label for="{{form.password1.id_for_label}}">Password:</label>
-				<br>
-				{{form.password1}}
-			</div>
+			{% bootstrap_form form %}
 
-			<div class="fieldWrapper">
-				{{form.password2.errors}}
-				<label for="{{form.password2.id_for_label}}">Confirmed Password:</label>
-				<br>
-				{{form.password2}}
-			</div>
 			<input type="submit" class="btn btn-primary" value="Submit!">
 		</form>
 	</div>

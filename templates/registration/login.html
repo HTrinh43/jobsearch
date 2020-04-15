@@ -3,7 +3,7 @@
 	
 
 {%extends 'main/navbar.html'%}
-
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -17,19 +17,9 @@
 <br>
 {%endif%}
 	{%csrf_token%}
-	{{form.non_field_errors}}
-		<div class="fieldWrapper">
-			{{form.username.errors}}
-			<label for="{{form.username.id_for_label}}">Username:</label>
-			<br>
-			{{form.username}}
-		</div>
-		<div class="fieldWrapper">
-			{{form.password.errors}}
-			<label for="{{form.password.id_for_label}}">Username:</label>
-			<br>
-			{{form.password}}
-		</div>
+
+	{% bootstrap_form form %}
+
 
 	<input type="submit", class="btn btn-primary">
 </form>

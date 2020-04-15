@@ -58,7 +58,9 @@ def edit_post(request, post_id):
 			form = CreateNewPost(instance=post)
 	return render(request, 'post/create.html',{'form': form})
 
-
+def detail_ajax(request, post_id):
+	post = get_object_or_404(Post, pk = post_id)
+	return render(request, 'post/quickviewJob.html', {'post': post})
 
 
 

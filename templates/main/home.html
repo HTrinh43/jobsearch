@@ -7,9 +7,25 @@
 		<div class="col-4 pl-3">
 				{% include 'main/post_card.html' with post=post only%}
 		</div>	
-		
+
+		{% comment %} make a new row to divide every 3 cards {% endcomment %}
+
+		{% if forloop.counter|divisibleby:3 %}
+		<div class="row"></div>
+
+		{% endif %}
 		{%endfor%}
+
+
 	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="jobDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    
+  </div>
+</div>
+
 </div>
 
 {%endblock%}

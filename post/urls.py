@@ -9,4 +9,6 @@ urlpatterns = [
 	path('post/user', views.user_detail, name = 'user_detail'),
 	path('post/<int:post_id>/delete', views.delete_post, name = 'delete_post'),
 	path('post/<int:post_id>/edit', views.edit_post, name = 'edit_post'),
+	path('post/<int:post_id>/ajax', views.detail_ajax, name = 'ajax_post'),
+
 ]
