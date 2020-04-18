@@ -1,0 +1,10 @@
+@media (min-width: 601px);
+.login-container,
+.signup-container {
+    max-width: 601px;
+    height: auto;
+    min-height: 500px;
+    overflow-y: auto;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
