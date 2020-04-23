@@ -1,0 +1,19 @@
+
+<div class="usercard p-2 card">
+{%if user.is_authenticated%}
+<div>
+    <h3>Hi {{user.username}}</h3>
+    <h5>Location</h5>
+
+</div>
+
+{% else %}
+
+<div class="status_card p-2">
+    <h3>Guest</h3>
+    <a href="" class="btn btn-primary">Log in</a>
+    <a href="" class="btn btn-primary">Sign Up</a>
+</div>
+
+{% endif %}
+</div>

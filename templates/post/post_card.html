@@ -1,0 +1,14 @@
+
+
+<div class="postcard card d-flex m-2" onClick="location.href='{% url 'detail' post.id %}'" style=" cursor: pointer;">
+  <div class="card-body d-flex flex-column mr-auto">
+
+    <h5 class="card-title">{{post.workplace_summary}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{post.job_summary}}</h6>
+    <p class="card-text">{{post.address_summary}}</p>
+
+  </div>
+</div>
+
+
+

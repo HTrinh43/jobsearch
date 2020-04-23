@@ -1,0 +1,10 @@
+.postcard {
+    width: 300px !important;
+    height: auto;
+}
+
+.usercard {
+    width: 250 !important;
+    height: 150;
+    /* border: solid .1rem black; */
+}

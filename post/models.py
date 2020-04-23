@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 WORKTIME_CHOICE = [
 	('FULL','Fulltime'),
 	('PART','Parttime'),
@@ -25,3 +26,11 @@ class Post(models.Model):
 	def salary_display(self):
 		return '$' + str(self.salary) + '/h' 
 
+	def job_summary(self):
+		return self.job[:25] 
+	
+	def workplace_summary(self):
+		return self.workplace[:25]
+
+	def address_summary(self):
+		return self.address[:25]

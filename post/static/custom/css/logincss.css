@@ -8,3 +8,5 @@
     -webkit-transition: .2s;
     transition: .2s;
 }
+
+<div class="card-text"><a href="{% url 'detail' post.id %}" class="invisible btn btn-primary">Detail</a><button type="button" class="invisible btn btn-primary btn-quickview" data-toggle="modal" data-post-id="{{post.id}}" data-target="#jobDetailModal">Quick View </button></div>

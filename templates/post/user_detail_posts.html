@@ -7,7 +7,7 @@
 		{%for post in posts%}
 			{% if user.is_authenticated and user.username == post.author.username %}	
 			<div class="col-4 pl-3">
-				{% include 'main/post_card.html' with post=post only%}
+				{% include 'post/post_card.html' with post=post only%}
 			</div>	
 			{%endif%}
 

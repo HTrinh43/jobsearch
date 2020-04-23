@@ -2,24 +2,64 @@
 
 {%block content%}
 
-
-<div class="container">
-	<div class="row pt-3 ">	
-		{%for post in posts%}		
-		<div class="col-sm-6 pb-2">
-				{% include 'main/post_card.html' with post=post only%}
-		</div>	
-
-		{% comment %} make a new row to divide every 3 cards {% endcomment %}
-
-		
-		{%endfor%}
+<div class="d-flex flex-sm-column flex-md-row">
 
 
+	<div class="container flex-column" >
+		{% include 'main/user_status_card.html'%}
 	</div>
 
+	<div class="d-flex flex-grow-1 flex-column ">	
 
+		<div class="d-flex flex-wrap flex-row py-2">
+					{%for post in posts%}		
+						{% include 'post/post_card.html' with post=post only%}
+					{%endfor%}
 
+		</div>
+	
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+
+				{% if posts.has_previous %}
+				<li class="page-item">
+    	  			<a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+    	    		<span aria-hidden="true">&laquo;</span>
+    	  			</a>
+   				</li>
+			
+				{% endif %}
+
+				{% if posts.number|add:'-4' > 1 %}
+				    <li class="page-item"><a class="page-link" href="?page={{ posts.number|add:'-5' }}">&hellip;</a></li>
+				{% endif %}
+
+				{% for i in posts.paginator.page_range %}
+				    {% if posts.number == i %}
+						<li class="page-item disabled"><a class="page-link">{{ i }}</a></li>
+				    {% elif i > posts.number|add:'-5' and i < posts.number|add:'5' %}
+				        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+				    {% endif %}
+
+				{% endfor %}
+
+				{% if posts.paginator.page_range > posts.number %}
+				    <li class="page-item"><a href="?page={{ posts.number|add:'5' }}">&hellip;</a></li>
+				{% endif %}
+
+				{% if posts.has_next %}
+					<li class="page-item">
+    	  				<a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+    	    				<span aria-hidden="true">&raquo;</span>
+    	  				</a>
+    				</li>
+				{% endif %}
+
+			</ul>
+		</nav>
+	
+	</div>
 </div>
+
 
 {%endblock%}
