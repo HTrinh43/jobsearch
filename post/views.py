@@ -9,7 +9,7 @@ from django.core.paginator import Paginator
 
 
 def home(request):
-	paginator = Paginator(Post.objects.all(), 9)
+	paginator = Paginator(Post.objects.all(), 10)
 	try:
 		page = int(request.GET.get('page', '1'))
 	except:
