@@ -1,0 +1,24 @@
+{% extends 'main/navbar.html'%}
+
+{%block content%}
+
+
+    {% if posts %}
+
+
+        <div class="d-flex flex-wrap flex-row">
+			{% for post in posts %}		
+				{% include 'post/post_card.html' with post=post only%}
+			{%endfor%}
+
+		</div>
+
+    {% else %}
+      <p>Query returned no results.</p>
+      {% endif %}
+
+
+
+
+
+{%endblock%}

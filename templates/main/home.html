@@ -66,28 +66,6 @@
 
 
 
-<div class="container row">
-
-	<div class="column-4 btn-quickview">
-		<ul>
-			
-		{%for post in posts%}		
-		<li>
-			{% include 'post/post_card.html' with post=post only%}
-		</li>
-		{%endfor%}
-		</ul>
-	</div>
-
-	<div id="jobDetail">
-		<div class="jobDetail">
-		THis is a text
-		</div>
-	</div>
-
-
-
-</div>
 
 
 {%endblock%}

@@ -6,6 +6,7 @@ from account.forms import CreateNewPost
 from django.contrib import messages
 from django.forms import ModelForm, Form
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 def home(request):
@@ -85,3 +86,13 @@ def detail_ajax(request, post_id):
 	post=get_object_or_404(Post, pk=post_id)
 	return render(request, 'post/quickviewJob.html', {'post': post})
 
+
+def search(request):
+	search_query = request.GET.get('search')
+	posts = Post.objects.all()
+	
+	if search_query:
+		posts = posts.filter(Q(workplace__icontains=search_query) | Q(description__icontains=search_query) | Q(job__icontains=search_query) ).distinct()
+	return render(request, 'main/search.html', {'posts': posts})
+	
+	
