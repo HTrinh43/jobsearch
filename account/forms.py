@@ -22,26 +22,11 @@ class RegisterForm(UserCreationForm):
 		except:
 			pass
 
-WORKTIME_CHOICE = [
-	('FULL','Fulltime'),
-	('PART','Parttime'),
-	('FULLandPART', 'Fulltime and Parttime'),
-	]
 
 class CreateNewPost(ModelForm):
 	class Meta:
 		model = Post
 		fields =['job','workplace','address','worktime','salary','description']
-		
-
-
-	# job = forms.CharField(label="Job Name",max_length=255)
-	# workplace = forms.CharField(label='Workplace', max_length=255)
-	# fulltime = forms.BooleanField(label='Full Time', required=False)
-	# parttime = forms.BooleanField(label='Part Time', required=False)
-	# address = forms.CharField(label='Address')
-	# salary = forms.IntegerField(label='Salary')
-	# description = forms.CharField(label='Description', required=False)
 	
 class LogInForm(forms.Form):
 	username = forms.CharField(max_length=255)

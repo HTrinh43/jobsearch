@@ -48,8 +48,6 @@ def create(request):
 			post.author=request.user
 			post.worktime=form.cleaned_data['worktime']
 			post.save()
-			# form.save()
-
 			return redirect('/post/' + str(post.id))
 	else:
 		form=CreateNewPost()
